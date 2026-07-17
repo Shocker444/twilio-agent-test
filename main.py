@@ -176,6 +176,22 @@ class VoicePipeline:
                                     text=message.content
                                 )
                                 buffer.append(message.content)
+                                
+                            if hasattr(message, "tool_calls") and message.tool_calls:
+                                for tool_call in message.tool_calls:
+                                    yield ToolCallEvent(
+                                        id=tool_call["id"],
+                                        tool_name=tool_call["name"],
+                                        arguments=tool_call["args"]
+                                    )
+
+                        if isinstance(message, ToolMessage):
+                            yield ToolReturnEvent(
+                                id=message.tool_call_id,
+                                tool_name=message.name,
+                                return_value=str(message.content) if message.content else ""
+                            )
+
                     except IndexError:
                         logger.error(f"IndexError: {message.content}")
 
