@@ -255,7 +255,7 @@ async def websocket_endpoint(websocket: WebSocket):
         data = json.loads(message)
         if data.get("event") == "start":
             stream_sid = data["start"]["streamSid"]
-            logger.info()
+            
             logger.info(f"Stream started: {stream_sid}")
             break
         elif data.get("event") == "connected":
