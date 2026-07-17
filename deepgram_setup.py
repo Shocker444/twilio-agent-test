@@ -69,7 +69,6 @@ class DeepgramSTT:
                         try:
                             message = json.loads(raw_message)
                             message_type = message.get('type')
-                            logger.info(f"Deepgram STT: Message {message}")
                                 
                             if message_type == "TurnInfo":
                                 transcript = message.get("transcript", "")
@@ -174,7 +173,6 @@ class DeepgramTTS:
             try:
                 async for raw_message in self._ws:
                     if isinstance(raw_message, bytes):
-                        logger.info(f"Deepgram TTS: Received {len(raw_message)} bytes")
                         yield TTSChunkEvent(stream_sid=self._stream_sid,
                                             audio_data=raw_message)
 
