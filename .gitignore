@@ -1,0 +1,11 @@
+# virtual envs
+.venv/
+
+# env variables
+.env
+
+# pydantic
+*.pyc
+*.pyd
+*.pdf
+__pycache__
