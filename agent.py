@@ -16,7 +16,7 @@ from settings import settings
 from prompts import SYSTEM_PROMPT
 
 
-model = init_chat_model(model=settings.LLM_MODEL_NAME, model_provider="openai", temperature=0, api_key=settings.GEMINI_API_KEY)
+model = init_chat_model(model=settings.LLM_MODEL_NAME, model_provider="openai", temperature=0, api_key=settings.OPENAI_API_KEY)
 
 
 class AgentState(TypedDict):
