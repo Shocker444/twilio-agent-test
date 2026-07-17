@@ -173,9 +173,9 @@ class VoicePipeline:
                                     logger.info(f"⏱️ AGENT LATENCY (STT -> First LLM Token): {latency:.3f}s")
 
                                 yield AgentChunkEvent(
-                                    text=message.content[0]['text']
+                                    text=message.content
                                 )
-                                buffer.append(message.content[0]['text'])
+                                buffer.append(message.content)
                     except IndexError:
                         logger.error(f"IndexError: {message.content}")
 

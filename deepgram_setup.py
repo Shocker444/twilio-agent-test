@@ -124,7 +124,7 @@ class DeepgramSTT:
             "model": "flux-general-en",   # Swapped back to Deepgram Flux
             "encoding": "mulaw",          # Accept native Twilio format
             "sample_rate": 8000,          # Twilio streams at 8kHz
-            "eot_threshold": 0.9
+            "eot_threshold": 0.75
         }
         url = f"wss://api.deepgram.com/v2/listen?{urlencode(params)}"
         headers = {"Authorization": f"Token {self.api_key}"}

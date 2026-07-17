@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     # LLM SETTINGS FOR AGENT
     OPENAI_API_KEY: Optional[str] = Field(default=None, description="OpenAI API key for LLM access")
     GEMINI_API_KEY: Optional[str] = Field(default=None, description="Gemini API key for LLM access")
-    LLM_MODEL_NAME: str = Field(default="gemini-3.5-flash", description="LLM model name to use")
+    LLM_MODEL_NAME: str = Field(default="gpt-4.1", description="LLM model name to use")
 
     # MongoDB Database
     DATABASE_HOST: str = Field(default="mongodb://localhost:27017", description="MongoDB connection string")

@@ -16,7 +16,7 @@ from settings import settings
 from prompts import SYSTEM_PROMPT
 
 
-model = init_chat_model(model=settings.LLM_MODEL_NAME, model_provider="google_genai", temperature=0, api_key=settings.GEMINI_API_KEY)
+model = init_chat_model(model=settings.LLM_MODEL_NAME, model_provider="openai", temperature=0, api_key=settings.GEMINI_API_KEY)
 
 
 class AgentState(TypedDict):
@@ -31,7 +31,7 @@ async def call_llm(state: AgentState):
             SystemMessage(content=SYSTEM_PROMPT)]
         + state["messages"]
     )
-    return {"messages": response}
+    return {"messages": response.content}
 
 '''async def technical_phase(state: AgentState):
     """ Call the LLM with the given messages."""
